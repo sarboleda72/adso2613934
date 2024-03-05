@@ -21,6 +21,13 @@
                 margin: 0;
             }
         }
+        .zoom-container {
+            transition: transform 0.3s; /* Agrega una transición suave al efecto de zoom */
+        }
+
+        .zoom-container:hover {
+            transform: scale(1.01); /* Ajusta el valor para aumentar o disminuir el nivel de zoom */
+        }
     </style>
 </head>
 
@@ -44,7 +51,6 @@
                 protected $healt;
                 protected $img;
                 //protected $image;
-
 
                 // Methods
                 public function __construct($name, $type, $healt, $img)
@@ -93,7 +99,7 @@
         <div class="container w-50 bg-black  bg-opacity-50 rounded-5 p-5 mt-2">
             <h1 class="text-center">04- Inheritance</h1>
             <div class="row text-center mt-5">
-                <div class="col bg-primary mx-2 border border-white border-2 ">
+                <div class="col bg-primary mx-2 border border-white border-2 zoom-container">
                     <img src="<?php echo $showNyo['img']; ?>" alt="">
                 </div>
                 <div class="col bg-primary mx-2 border border-white border-2 ">
@@ -104,30 +110,27 @@
                 </div>
             </div>
             <div class="row mt-2">
-                <div class="col bg-primary rounded-5 mx-2 d-flex justify-content-center p-3 border border-white border-2 ">
+                <div class="col bg-primary rounded-5 mx-2 d-flex justify-content-center p-3 border border-white border-2">
                     <ul class="list-unstyled">
                         <li>Nombre: <?php echo $showNyo['name']; ?></li>
                         <li>Tipo: <?php echo $showNyo['type']; ?></li>
                         <li>Salud: <?php echo $showNyo['healt']; ?></li>
                     </ul>
-
                 </div>
                 <div class="col bg-primary rounded-5 mx-2 d-flex justify-content-center p-3 border-danger border border-white border-2 ">
                     <ul class="list-unstyled">
                         <li>Nombre: <?php echo $showBub['name']; ?></li>
                         <li>Tipo: <?php echo $showBub['type']; ?></li>
                         <li>Salud: <?php echo $showBub['healt']; ?></li>
-                                                
                     </ul>
-
                 </div>
                 <div class="col bg-primary rounded-5 mx-2 d-flex justify-content-center p-3 border border-white border-2 ">
                     <ul class="list-unstyled">
                         <li>Nombre: <?php echo $showPiy['name']; ?></li>
                         <li>Tipo: <?php echo $showPiy['type']; ?></li>
                         <li>Salud: <?php echo $showPiy['healt']; ?></li>
-                    </ul class="list-unstyled">
-                </div>
+                    </ul>
+        </div>
             </div>
         </div>
     </main>
