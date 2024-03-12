@@ -30,6 +30,42 @@
             transform: scale(1.01);
             /* Ajusta el valor para aumentar o disminuir el nivel de zoom */
         }
+
+        img {
+            max-width: 50px;
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 100%;
+
+            thead {
+                color: black;
+                background-color: #ffffff;
+            
+            }
+
+            tbody {
+                color: #ffffff;
+            }
+
+            td,
+            th {
+                padding: 10px;
+                text-align: left;
+            }
+
+            /* Intercale entre columnas gris y negro */
+            tbody tr:nth-child(even) {
+                background-color: rgba(0, 0, 0, 0.5);
+                /* fondo negro con transparencia para filas pares */
+            }
+
+            tbody tr:nth-child(odd) {
+                background-color: rgba(102, 102, 102, 0.5);
+                /* fondo gris con transparencia para filas impares */
+            }
+        }
     </style>
 </head>
 
@@ -57,7 +93,6 @@
                 protected $conx;
 
                 //Metodos
-
                 public function __construct($dbname, $host = 'localhost', $user = 'root', $pass = "")
                 {
                     $this->host = $host;
@@ -79,13 +114,45 @@
 
             class Digimon extends Database
             {
+                public function listPokemons()
+                {
+                    $lisDigimons = $this->conx->query('SELECT * FROM pokemons');
+                    return $lisDigimons->fetchALL();
+                }
             }
 
             $db = new Digimon('adso2613934');
             $db->connect();
+            $listDigimons = $db->listPokemons();
             ?>
         </section>
+
+        <section>
+            <table>
+                <thead>
+                    <td>id</td>
+                    <td>nambre</td>
+                    <td>tipo</td>
+                    <td>Salud</td>
+                    <td>imagen</td>
+
+                </thead>
+                <tbody>
+                    <?php foreach ($listDigimons as $digimon) :  ?>
+                        <tr>
+                            <td><?= $digimon['id'] ?></td>
+                            <td><?= $digimon['name'] ?></td>
+                            <td><?= $digimon['type'] ?></td>
+                            <td><?= $digimon['health'] ?></td>
+                            <td><img src="images/<?= $digimon['image'] ?>" alt=""></td>
+                        </tr>
+                    <?php endforeach; ?>
+                </tbody>
+            </table>
+        </section>
+
     </main>
+
 
 </body>
 </body>

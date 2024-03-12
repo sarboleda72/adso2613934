@@ -63,6 +63,7 @@
                     width: 280px;
                 }
         }
+    }
     </style>
 </head>
 <body>
