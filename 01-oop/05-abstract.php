@@ -31,9 +31,7 @@
             /* Ajusta el valor para aumentar o disminuir el nivel de zoom */
         }
 
-        img {
-            max-width: 50px;
-        }
+
 
         table {
             border-collapse: collapse;
@@ -41,8 +39,7 @@
 
             thead {
                 color: black;
-                background-color: #ffffff;
-            
+                background-color: rgba(254, 254, 254, 0.7);
             }
 
             tbody {
@@ -55,15 +52,23 @@
                 text-align: left;
             }
 
-            /* Intercale entre columnas gris y negro */
             tbody tr:nth-child(even) {
                 background-color: rgba(0, 0, 0, 0.5);
-                /* fondo negro con transparencia para filas pares */
             }
 
             tbody tr:nth-child(odd) {
                 background-color: rgba(102, 102, 102, 0.5);
-                /* fondo gris con transparencia para filas impares */
+            }
+
+            img {
+                max-width: 50px;
+                filter: grayscale(100%);
+                transition: filter 0.5s ease;
+            }
+
+            img:hover {
+                filter: grayscale(0%);
+
             }
         }
     </style>
@@ -79,53 +84,51 @@
     </nav>
 
     <main>
+
         <h2>05 - Abstract</h2>
 
-        <section>
-            <?php
-            abstract class Database
+        <?php
+        abstract class Database
+        {
+            //atributos
+            protected $host;
+            protected $user;
+            protected $pass;
+            protected $dbname;
+            protected $conx;
+
+            //Metodos
+            public function __construct($dbname, $host = 'localhost', $user = 'root', $pass = "")
             {
-                //atributos
-                protected $host;
-                protected $user;
-                protected $pass;
-                protected $dbname;
-                protected $conx;
-
-                //Metodos
-                public function __construct($dbname, $host = 'localhost', $user = 'root', $pass = "")
-                {
-                    $this->host = $host;
-                    $this->user = $user;
-                    $this->pass = $pass;
-                    $this->dbname = $dbname;
-                }
-
-                public function connect()
-                {
-                    try {
-                        $this->conx = new PDO("mysql:host=$this->host;dbname=$this->dbname", $this->user, $this->pass);
-                        echo '😊';
-                    } catch (PDOException $e) {
-                        echo $e->getMessage();
-                    }
-                }
+                $this->host = $host;
+                $this->user = $user;
+                $this->pass = $pass;
+                $this->dbname = $dbname;
             }
 
-            class Digimon extends Database
+            public function connect()
             {
-                public function listPokemons()
-                {
-                    $lisDigimons = $this->conx->query('SELECT * FROM pokemons');
-                    return $lisDigimons->fetchALL();
+                try {
+                    $this->conx = new PDO("mysql:host=$this->host;dbname=$this->dbname", $this->user, $this->pass);
+                } catch (PDOException $e) {
+                    echo $e->getMessage();
                 }
             }
+        }
 
-            $db = new Digimon('adso2613934');
-            $db->connect();
-            $listDigimons = $db->listPokemons();
-            ?>
-        </section>
+        class Digimon extends Database
+        {
+            public function listPokemons()
+            {
+                $lisDigimons = $this->conx->query('SELECT * FROM pokemons');
+                return $lisDigimons->fetchALL();
+            }
+        }
+
+        $db = new Digimon('adso2613934');
+        $db->connect();
+        $listDigimons = $db->listPokemons();
+        ?>
 
         <section>
             <table>
@@ -135,7 +138,6 @@
                     <td>tipo</td>
                     <td>Salud</td>
                     <td>imagen</td>
-
                 </thead>
                 <tbody>
                     <?php foreach ($listDigimons as $digimon) :  ?>
@@ -152,7 +154,6 @@
         </section>
 
     </main>
-
 
 </body>
 </body>
