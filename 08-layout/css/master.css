@@ -48,9 +48,6 @@ main.welcome{
   section.slider{
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    margin-block-start: 3rem;
   }
   footer{
     display: flex;
