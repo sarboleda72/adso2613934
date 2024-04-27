@@ -1,0 +1,78 @@
+/*V A R I A B L E*/
+
+:root {
+    --ff-heading: "Roboto", sans-serif;
+    --ff-body:"Inter", sans-serif;
+    --color-first:#FFE6E6;
+    --color-second:#E1AFD1;
+    --color-third:#AD88C6;
+    --color-fourth:#7469B6;
+    --color-five:#FFFFFF;
+    --color-six:#000000;
+    
+  }
+/* ------------------- */ 
+/*G E N E R A L*/
+/* ------------------- */
+
+body {
+    background-color: var(--color-first);
+    /* background: linear-gradient(to bottom, #AEE2FF 40%, #372948 100%); */
+    font-family: var(--ff-body);
+    font-weight: 100;
+    font-style: normal;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    main {
+        background: url(../images/bg-main.png.png) no-repeat center;        
+        height: 800px;
+        overflow: hidden;
+        width: 400px;
+    }
+  }
+
+/* ------------------- */
+/*01- W E L C O M E*/
+/* ------------------- */
+
+
+main.welcome{
+  header{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-block-start: 5rem;
+  }
+  section.slider{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-block-start: 3rem;
+  }
+  footer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    a:is(:link, :visited){
+      background: url(../images/btn-link.png) no-repeat center;
+      height: 60px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-top: 6.9rem;
+      transition: all 0.1s ease-in;
+      width: 300px;
+    }
+    a:is(:hover){
+      background: url(../images/btn-hover.png) no-repeat center;
+      transform: scale(1.01) translateY(-1px);
+    }
+    a:is(:active){
+      background: url(../images/btn-activate.png) no-repeat center;
+    }
+  }
+
+}
