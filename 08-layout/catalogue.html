@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>GameApp - Welcome</title>
+  <link rel="stylesheet" href="css/reset.css">
+  <link rel="stylesheet" href="css/fonts.css">
+  <link rel="stylesheet" href="css/master.css">
+  <link rel="stylesheet" href="css/owl.carousel.min.css">
+  <link rel="stylesheet" href="css/owl.theme.default.min.css">
+</head>
+
+<body>
+  <main class="catalogue">
+
+    <header>
+      <img class="logo" src="images/logo-catalogue.png" alt="Logo">
+      <a href="">
+        <img clas="menu" src="images/menu.svg" alt="menu">
+      </a>
+    </header>
+
+    <section class="filter">
+      <input class="inpFilter" type="text" placeholder="Filter">
+    </section>
+
+    <div class="containerCarrusel">
+      <h2 class="category">SNES:</h2>
+      <section class="owl-carousel owl-theme">
+        <figure>
+          <a href="view-game.html">
+            <img class="catalogue" src="images/carrusel 1.png" alt="Slide01">
+          </a>
+          <h2>
+            Ninja Turtles
+          </h2>
+          <p>
+            Konami
+          </p>
+        </figure>
+        <figure>
+          <a href="">
+            <img class="catalogue" src="images/carrusel 2.png" alt="Slide01">
+          </a>
+          <h2>
+            Sunset Riders
+          </h2>
+          <p>
+            Konami
+          </p>
+        </figure>
+      </section>
+
+      <h2 class="category">PSX:</h2>
+      <section class="owl-carousel owl-theme">
+        <figure>
+          <a href="">
+            <img class="catalogue" src="images/carrusel 3.png" alt="Slide01">
+          </a>
+          <h2>
+            PEPSI MAN
+          </h2>
+          <p>
+            KID
+          </p>
+        </figure>
+        <figure>
+          <a href="">
+            <img class="catalogue" src="images/carrusel 4.png" alt="Slide01">
+          </a>
+          <h2>
+            FF VII
+          </h2>
+          <p>
+            SqueareSoft
+          </p>
+        </figure>
+      </section>
+    </div>
+  </main>
+
+  <script src="js/jquery-3.7.1.min.js"></script>
+  <script src="js/owl.carousel.min.js"></script>
+
+  <script>
+    $(document).ready(function () {
+      $(".owl-carousel").owlCarousel({
+        loop: true,
+        margin: 1,
+        dots: false,
+        responsive: {
+          0: {
+            items: 2,
+          },
+        },
+      });
+    });
+  </script>
+</body>
+
+</html>

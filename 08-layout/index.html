@@ -17,16 +17,17 @@
         <img src="images/logo-welcome.png" alt="Logo">
       </header>
 
-      <section class="slider owl-carousel owl-theme">
-        <img src="images/slide-01.png" alt="Slide01">
-        <img src="images/slide-01.png" alt="Slide03">
-        <img src="images/slide-01.png" alt="Slide02">
+      <section class="owl-carousel owl-theme">
+        <img class="welcome" src="images/slide-01.png" alt="Slide01">
+        <img class="welcome" src="images/slide-01.png" alt="Slide03">
+        <img class="welcome" src="images/slide-01.png" alt="Slide02">
       </section>
 
       <footer>
-        <a href="" class="btn btn-explore">
+        <a href="catalogue.html" class="btn btn-explore">
           <img src="images/content-btn-welcome.svg" alt="Explore">
         </a>
+      </footer>
       </footer>
 
     </main>
@@ -40,12 +41,10 @@
           loop: true,
           margin: 10,
           nav: true,
-          dots:true,
           responsive: {
             0: {
               items: 1,
             },
-            
           },
         });
       });
