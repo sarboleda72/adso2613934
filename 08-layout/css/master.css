@@ -175,31 +175,7 @@ main.catalogue {
 
   }
 
-  footer {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-    a:is(:link, :visited) {
-      background: url(../images/btn-link.png) no-repeat center;
-      height: 60px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      margin-top: 2.9rem;
-      transition: all 0.1s ease-in;
-      width: 300px;
-    }
-
-    a:is(:hover) {
-      background: url(../images/btn-hover.png) no-repeat center;
-      transform: scale(1.01) translateY(-1px);
-    }
-
-    a:is(:active) {
-      background: url(../images/btn-activate.png) no-repeat center;
-    }
-  }
+  
 
 }
 
@@ -207,6 +183,10 @@ main.catalogue {
 /*02.1-View-Game*/
 /* ------------------- */
 main.view-game {
+  display: flex;
+  flex-direction: column;
+  justify-content:flex-start;
+  align-items:center;
   header {
     display: flex;
     margin-block-start: 41px;
@@ -214,7 +194,7 @@ main.view-game {
     align-items: center;
     padding-left: 20px;
     padding-right: 20px;
-
+    width: 400px;
   }
 
   section.imgGame {
@@ -223,47 +203,21 @@ main.view-game {
     align-items: center;
     margin-top: 30px;
   }
+  
 
-
-  div.containerCarrusel {
-    margin-top: 30px;
-    h2.category {
-      margin-block: 20px;
-      font-size: 24px;
-      text-indent: 30px;
+  section.information{
+    margin-top: 10px;
+    display: flex;
+    width: 284px;
+    justify-content: space-between;
+    div.row{
+      font-size: 20px;
     }
   }
-
-  section.owl-carousel {
-
-
-    figure {
-      h2 {
-        font-family: var(--ff-heading);
-        font-size: 20px;
-      }
-    }
-
-
-    p {
-      font-family: var(--ff-body);
-      text-decoration: underline;
-    }
-
-    div.owl-item {
-      display: flex;
-      flex-direction: center;
-      justify-content: center;
-
-      img.catalogue {
-        height: 140px;
-        width: 140px;
-        margin: 0px;
-      }
-    }
-
+  section.description{
+    margin-top: 20px;
+    width: 284px;
   }
-
   footer {
     display: flex;
     justify-content: center;
