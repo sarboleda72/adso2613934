@@ -29,11 +29,69 @@ body {
   color: var(--color-five);
 
   main {
-    background: url(../images/bg-main.png.png) no-repeat center;
+    position: relative;
+    background: url(../images/bg-main.png) no-repeat center;
     height: 800px;
     overflow: hidden;
     width: 400px;
   }
+
+  nav.nav {
+    background-color: #0009;
+    -webkit-backdrop-filter: blur(14px);
+    backdrop-filter: blur(14px);
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    height: 800px;
+    padding-top: 8rem;
+    opacity: 0;
+    position: absolute;
+    top: 0;
+    transform: translateY(-60%) scale(20%);
+    transition: all 0.4s ease-in-out;
+    z-index: 2;
+    width: 400px;
+
+    img.title-menu {
+      margin-block: 2rem;
+    }
+  }
+
+  nav.nav.active {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+
+  menu {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    a:is(:link, :visited) {
+      color: var(--color-five);
+      font-size: 20px;
+      font-weight: 400;
+      height: 60px;
+      display: flex;
+      justify-content: start;
+      align-items: center;
+      gap: .6rem;
+      padding-left: 20px;
+      margin-top: 0.6rem;
+      margin-bottom: 0.6rem;
+      transition: all 0.3s ease-in;
+      text-decoration: none;
+      width: 300px;
+    }
+
+    a:is(:hover) {
+      transform: scale(1.02) translateY(-5px);
+    }
+  }
+
 }
 
 /* ------------------- */
@@ -110,34 +168,45 @@ main.catalogue {
     padding-left: 29px;
     padding-right: 12px;
 
+    position: relative;
+    z-index: 3;
+
   }
 
-  section.filter {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: 30px;
+  section.scroll {
+    scrollbar-width: none;
+    overflow-y: scroll;
+    height: 640px;
 
-    input.inpFilter {
-      background: url(../images/filter.svg) no-repeat 250px;
-      height: 45px;
-      width: 300px;
-      border-radius: 25px;
-      border-color: white;
-      color: white;
-      text-indent: 30px;
-      font-size: 28px;
-      background-color: black;
+    form.filter {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-top: 30px;
 
-      &::placeholder {
-        color: white;
+      input.inpFilter {
+        background: url(../images/filter.svg) no-repeat 250px;
+        height: 45px;
+        width: 300px;
+        border-radius: 25px;
+        border-color: var(--color-five);
+        color: var(--color-five);
+        text-indent: 30px;
+        padding-right: 50px;
+        font-size: 24px;
+        background-color: var(--color-six);
+
+        &::placeholder {
+          color: var(--color-five);
+          opacity: .5;
+        }
       }
     }
   }
 
-
   div.containerCarrusel {
     margin-top: 30px;
+
     h2.category {
       margin-block: 20px;
       font-size: 24px;
@@ -146,7 +215,6 @@ main.catalogue {
   }
 
   section.owl-carousel {
-
 
     figure {
       h2 {
@@ -175,8 +243,6 @@ main.catalogue {
 
   }
 
-  
-
 }
 
 /* ------------------- */
@@ -185,8 +251,9 @@ main.catalogue {
 main.view-game {
   display: flex;
   flex-direction: column;
-  justify-content:flex-start;
-  align-items:center;
+  justify-content: flex-start;
+  align-items: center;
+
   header {
     display: flex;
     margin-block-start: 41px;
@@ -203,21 +270,24 @@ main.view-game {
     align-items: center;
     margin-top: 30px;
   }
-  
 
-  section.information{
+
+  section.information {
     margin-top: 10px;
     display: flex;
     width: 284px;
     justify-content: space-between;
-    div.row{
+
+    div.row {
       font-size: 20px;
     }
   }
-  section.description{
+
+  section.description {
     margin-top: 20px;
     width: 284px;
   }
+
   footer {
     display: flex;
     justify-content: center;
@@ -242,6 +312,103 @@ main.view-game {
     a:is(:active) {
       background: url(../images/btn-activate.png) no-repeat center;
     }
+  }
+
+}
+
+
+/* ------------------- */
+/*04- login*/
+/* ------------------- */
+main.login {
+  header {
+    a{
+      pointer-events: none;
+    }
+    img.back{
+      visibility: hidden;
+    }
+    display: flex;
+    margin-block-start: 41px;
+    justify-content: space-between;
+
+    align-items: center;
+    padding-left: 29px;
+    padding-right: 12px;
+
+    position: relative;
+    z-index: 3;
+
+  }
+
+  section.scroll {
+    scrollbar-width: none;
+    overflow-y: scroll;
+    height: 640px;
+
+    form.filter {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-top: 30px;
+
+      input.inpFilter {
+        background: url(../images/filter.svg) no-repeat 250px;
+        height: 45px;
+        width: 300px;
+        border-radius: 25px;
+        border-color: var(--color-five);
+        color: var(--color-five);
+        text-indent: 30px;
+        padding-right: 50px;
+        font-size: 24px;
+        background-color: var(--color-six);
+
+        &::placeholder {
+          color: var(--color-five);
+          opacity: .5;
+        }
+      }
+    }
+  }
+
+  div.containerCarrusel {
+    margin-top: 30px;
+
+    h2.category {
+      margin-block: 20px;
+      font-size: 24px;
+      text-indent: 30px;
+    }
+  }
+
+  section.owl-carousel {
+
+    figure {
+      h2 {
+        font-family: var(--ff-heading);
+        font-size: 20px;
+      }
+    }
+
+
+    p {
+      font-family: var(--ff-body);
+      text-decoration: underline;
+    }
+
+    div.owl-item {
+      display: flex;
+      flex-direction: center;
+      justify-content: center;
+
+      img.catalogue {
+        height: 140px;
+        width: 140px;
+        margin: 0px;
+      }
+    }
+
   }
 
 }

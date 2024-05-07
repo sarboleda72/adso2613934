@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>GameApp - Welcome</title>
+  <title>GameApp - Catalogue</title>
   <link rel="stylesheet" href="css/reset.css">
   <link rel="stylesheet" href="css/fonts.css">
   <link rel="stylesheet" href="css/master.css">
@@ -17,68 +17,117 @@
 
     <header>
       <img class="logo" src="images/logo-catalogue.png" alt="Logo">
-      <a href="">
-        <img clas="menu" src="images/menu.svg" alt="menu">
-      </a>
+      <img class="btn-burger" src="images/menu.svg" alt="menu">
     </header>
 
-    <section class="filter">
-      <input class="inpFilter" type="text" placeholder="Filter">
+    <nav class="nav">
+      <menu>
+        <a href="login.html">
+          <img src="images/ico-login.svg" alt="Login">
+          Login
+        </a>
+        <img src="images/Line-menu.svg" alt="">
+        <a href="">
+          <img src="images/ico-register.svg" alt="Register">
+          Register
+        </a>
+        <img src="images/Line-menu.svg" alt="">
+        <a href="">
+          <img src="images/ico-catalogue.svg" alt="Catalogue">
+          Catalogue
+        </a>
+        <img src="images/Line-menu.svg" alt="">
+      </menu>
+    </nav>
+
+    <section class="scroll">
+
+      <form class="filter" action="">
+        <input class="inpFilter" type="text" placeholder="Filter">
+      </form>
+
+      <div class="containerCarrusel">
+        <h2 class="category">SNES:</h2>
+        <section class="owl-carousel owl-theme">
+          <figure>
+            <a href="view-game.html">
+              <img class="catalogue" src="images/carrusel 1.png" alt="Slide01">
+            </a>
+            <h2>
+              Ninja Turtles
+            </h2>
+            <p>
+              Konami
+            </p>
+          </figure>
+          <figure>
+            <a href="">
+              <img class="catalogue" src="images/carrusel 2.png" alt="Slide01">
+            </a>
+            <h2>
+              Sunset Riders
+            </h2>
+            <p>
+              Konami
+            </p>
+          </figure>
+        </section>
+
+        <h2 class="category">PSX:</h2>
+        <section class="owl-carousel owl-theme">
+          <figure>
+            <a href="">
+              <img class="catalogue" src="images/carrusel 3.png" alt="Slide01">
+            </a>
+            <h2>
+              PEPSI MAN
+            </h2>
+            <p>
+              KID
+            </p>
+          </figure>
+          <figure>
+            <a href="">
+              <img class="catalogue" src="images/carrusel 4.png" alt="Slide01">
+            </a>
+            <h2>
+              FF VII
+            </h2>
+            <p>
+              SqueareSoft
+            </p>
+          </figure>
+        </section>
+
+        <h2 class="category">N64:</h2>
+        <section class="owl-carousel owl-theme">
+          <figure>
+            <a href="">
+              <img class="catalogue" src="images/carrusel 5.png" alt="Slide01">
+            </a>
+            <h2>
+              Mario Kart 64
+            </h2>
+            <p>
+              Nintendo EAD
+            </p>
+          </figure>
+          <figure>
+            <a href="">
+              <img class="catalogue" src="images/carrusel 6.png" alt="Slide01">
+            </a>
+            <h2>
+              F-Zero X
+            </h2>
+            <p>
+              Nintendo EAD
+            </p>
+          </figure>
+        </section>
+
+      </div>
+
     </section>
-
-    <div class="containerCarrusel">
-      <h2 class="category">SNES:</h2>
-      <section class="owl-carousel owl-theme">
-        <figure>
-          <a href="view-game.html">
-            <img class="catalogue" src="images/carrusel 1.png" alt="Slide01">
-          </a>
-          <h2>
-            Ninja Turtles
-          </h2>
-          <p>
-            Konami
-          </p>
-        </figure>
-        <figure>
-          <a href="">
-            <img class="catalogue" src="images/carrusel 2.png" alt="Slide01">
-          </a>
-          <h2>
-            Sunset Riders
-          </h2>
-          <p>
-            Konami
-          </p>
-        </figure>
-      </section>
-
-      <h2 class="category">PSX:</h2>
-      <section class="owl-carousel owl-theme">
-        <figure>
-          <a href="">
-            <img class="catalogue" src="images/carrusel 3.png" alt="Slide01">
-          </a>
-          <h2>
-            PEPSI MAN
-          </h2>
-          <p>
-            KID
-          </p>
-        </figure>
-        <figure>
-          <a href="">
-            <img class="catalogue" src="images/carrusel 4.png" alt="Slide01">
-          </a>
-          <h2>
-            FF VII
-          </h2>
-          <p>
-            SqueareSoft
-          </p>
-        </figure>
-      </section>
-    </div>
   </main>
 
   <script src="js/jquery-3.7.1.min.js"></script>
@@ -96,6 +145,18 @@
           },
         },
       });
+
+      $('header').on('click', '.btn-burger', function () {
+        $(this).toggleClass('active')
+
+        if ($(this).attr('src') === 'images/menu.svg') {
+          $(this).attr('src', 'images/icon-x.svg');
+        } else {
+          $(this).attr('src', 'images/menu.svg');
+        }
+
+        $('.nav').toggleClass('active')
+      })
     });
   </script>
 </body>
