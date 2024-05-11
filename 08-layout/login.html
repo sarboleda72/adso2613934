@@ -43,6 +43,29 @@
             </menu>
         </nav>
 
+        <section>
+            <form action="" class="frmLogin">
+                <div>
+                    <img src="images/icon-email.svg" alt="Login">
+                    Email:
+                </div>
+                <input type="email" placeholder="example@host.com">
+                <div>
+                    <img src="images/icon-pass.svg" alt="Login">
+                    Password:
+                </div>
+                <label for="passwd">
+                    <img src="images/icon-eye.svg" alt="">
+                    <input class="inpPass" id="passwd" name="passwd" type="password">
+                </label>
+                
+                <button type="submit">login</button>
+
+                <a href="">
+                    Forgot your password?
+                </a>
+            </form>
+        </section>
 
     </main>
 
@@ -51,16 +74,6 @@
 
     <script>
         $(document).ready(function () {
-            $(".owl-carousel").owlCarousel({
-                loop: true,
-                margin: 1,
-                dots: false,
-                responsive: {
-                    0: {
-                        items: 2,
-                    },
-                },
-            });
 
             $('header').on('click', '.btn-burger', function () {
                 $(this).toggleClass('active')
