@@ -489,7 +489,7 @@ main.register {
 
     button {
       cursor: pointer;
-      margin-top: 100px;
+      margin-top: 0px;
       width: 300px;
       height: 50px;
       border-radius: 25px;
@@ -517,4 +517,127 @@ main.register {
       font-size: 20px;
     }
   }
+}
+
+/* ------------------- */
+/*06- dashboard*/
+/* ------------------- */
+main.dashboard {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+
+  header {
+    display: flex;
+    margin-block-start: 41px;
+    justify-content: space-between;
+    align-items: center;
+    padding-left: 20px;
+    padding-right: 20px;
+    width: 400px;
+    position: relative;
+    z-index: 3;
+
+    img.back {
+      visibility: hidden;
+    }
+    a{
+      cursor: default;
+    }
+    
+  }
+  section.scroll {
+    scrollbar-width: none;
+    overflow-y: scroll;
+    height: 640px;
+    margin-top: 50px;
+    color: var(--color-six);
+    font-weight: 400;
+
+
+    div.container-dark{
+      margin-top: 20px;
+      width: 300px;
+      height: 120px;
+      background-color: var(--color-fourth);
+      border-radius: 30px;
+      display: flex;
+      align-items: center;
+      position: relative;
+      color: var(--color-five);
+      ;
+
+      div.icons{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 120px;
+        height: 120px;	
+
+        img{
+          width: 80px;
+          margin: 0px;
+
+        }
+      }
+      div.btn{
+        position:absolute;
+        right: 20px;
+        bottom: 5px;
+        button{
+          cursor: pointer;
+          width: 70px;
+          height: 30px;
+          border-radius: 20px;
+          border: none;
+          background-color: var(--color-second);
+          color: var(--color-six);
+          font-size: 20px;
+        }
+      }
+    }
+
+    div.container-light{
+      margin-top: 20px;
+      width: 300px;
+      height: 120px;
+      background-color: var(--color-third);
+      border-radius: 30px;
+      display: flex;
+      align-items: center;
+      position: relative;
+
+      div.icons{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 120px;
+        height: 120px;	
+
+        img{
+          width: 80px;
+          margin: 0px;
+        }
+      }
+      div.btn{
+        position:absolute;
+        right: 20px;
+        bottom: 5px;
+
+        button{
+          cursor: pointer;
+          width: 70px;
+          height: 30px;
+          border-radius: 20px;
+          border: none;
+          background-color: var(--color-fourth);
+          color: var(--color-six);
+          font-size: 20px;
+        }
+      }
+    }
+  }  
 }

@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>GameApp - dashboard</title>
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/fonts.css">
+    <link rel="stylesheet" href="css/master.css">
+    <link rel="stylesheet" href="css/owl.carousel.min.css">
+    <link rel="stylesheet" href="css/owl.theme.default.min.css">
+</head>
+
+<body>
+    <main class="dashboard">
+
+        <header>
+            <a href="">
+                <img class="back" src="images/back.svg" alt="menu">
+            </a>
+            <img class="logo" src="images/logo-dashboard.svg" alt="Logo">
+            <img class="btn-burger" src="images/menu.svg" alt="menu">
+        </header>
+
+        <nav class="nav"></nav>
+        
+        <section class="scroll">
+            <div class="container-dark">
+                <div class="icons">
+                    <img src="images/icon-users.svg" alt="">
+                    20 rows
+                </div>
+
+                <div class="text">
+                    Module: Users
+                </div>
+
+                <div class="btn">
+                    <button>view</button>
+                </div>
+                
+            </div>
+
+            <div class="container-light">
+                <div class="icons">
+                    <img src="images/icon-categories.svg" alt="">
+                    20 rows
+                </div>
+                <div class="text">
+                    Module: Categories
+                </div>
+
+                <div class="btn">
+                    <button>view</button>
+                </div>
+
+            </div>
+
+            <div class="container-dark">
+                <div class="icons">
+                    <img src="images/icon-game.svg" alt="">
+                    20 rows
+                </div>
+
+                <div class="text">
+                    Module: Games
+                </div>
+
+                <div class="btn">
+                    <button>view</button>
+                </div>
+                
+
+            </div>
+
+        </section>
+
+
+    </main>
+
+    <script src="js/jquery-3.7.1.min.js"></script>
+    <script src="js/owl.carousel.min.js"></script>
+
+    <script>
+        $(document).ready(function () {
+            $(".nav").load("menu.html");
+
+            $('header').on('click', '.btn-burger', function () {
+                $(this).toggleClass('active');
+                
+
+                if ($(this).attr('src') === 'images/menu.svg') {
+                    $(this).attr('src', 'images/icon-x.svg');
+                } else {
+                    $(this).attr('src', 'images/menu.svg');
+                }
+                $('.nav').toggleClass('active')
+            })
+        });
+    </script>
+</body>
+
+</html>
