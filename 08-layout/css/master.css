@@ -417,3 +417,104 @@ main.login {
     }
   }
 }
+
+/* ------------------- */
+/*05- register*/
+/* ------------------- */
+main.register {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+
+  header {
+    display: flex;
+    margin-block-start: 41px;
+    justify-content: space-between;
+    align-items: center;
+    padding-left: 20px;
+    padding-right: 20px;
+    width: 400px;
+    position: relative;
+    z-index: 3;
+
+    img.back {
+      visibility: hidden;
+    }
+  }
+
+  form.frmRegister {
+    display: flex;
+    flex-direction: column;
+    margin-top: 80px;
+    width: 300px;
+    gap: 10px;
+    font: var(--ff-body);
+
+    img {
+      width: 50px;
+    }
+
+    input {
+      height: 50px;
+      border-radius: 25px;
+      text-indent: 30px;
+      font: var(--ff-body);
+      color: var(--color-six);
+      background-color: var(--color-five);
+      padding-right: 50px;
+      width: 300px;
+
+      &::placeholder {
+        color: var(--color-six);
+        opacity: .7;
+      }
+    }
+
+    label {
+      position: relative;
+
+      img {
+        cursor: pointer;
+        position: absolute;
+        right: 10px;
+        top: 12.5px;
+        width: 20px;
+      }
+
+      img:hover {
+        transform: scale(1.03);
+      }
+    }
+
+    button {
+      cursor: pointer;
+      margin-top: 100px;
+      width: 300px;
+      height: 50px;
+      border-radius: 25px;
+      background-color: var(--color-second);
+      font: var(--ff-body);
+      font-weight: 400;
+      color: var(--color-six);
+      font-size: 30px;
+    }
+
+    button:hover {
+      background-color: var(--color-third);
+      transform: scale(1.01) translateY(-1px);
+    }
+
+    button:active {
+      background-color: var(--color-fourth);
+    }
+
+    a {
+      margin-top: 50px;
+      font: var(--ff-body);
+      font-weight: 400;
+      color: var(--color-five);
+      font-size: 20px;
+    }
+  }
+}

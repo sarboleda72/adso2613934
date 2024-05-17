@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <head>
     <meta charset="UTF-8" />
@@ -13,7 +13,7 @@
 </head>
 
 <body>
-    <main class="login">
+    <main class="register">
 
         <header>
             <a href="javascript:history.back()">
@@ -23,10 +23,12 @@
             <img class="btn-burger" src="images/menu.svg" alt="menu">
         </header>
 
-        <nav class="nav"></nav>
+        <nav class="nav">
+
+        </nav>
 
         <section>
-            <form action="" class="frmLogin">
+            <form action="" class="frmRegister">
                 <div>
                     <img src="images/icon-email.svg" alt="Login">
                     Email:
@@ -56,10 +58,10 @@
 
     <script>
         $(document).ready(function () {
-
+            $(".nav").load("menu.html");
             $('header').on('click', '.btn-burger', function () {
-                $(this).toggleClass('active');
-                $(".nav").load("menu.html");
+                
+                $(this).toggleClass('active')
 
                 if ($(this).attr('src') === 'images/menu.svg') {
                     $(this).attr('src', 'images/icon-x.svg');
@@ -67,9 +69,11 @@
                     $(this).attr('src', 'images/menu.svg');
                 }
 
-                $('.nav').toggleClass('active')
+                $('.nav').toggleClass('active');
             })
         });
+
+        
     </script>
 </body>
 

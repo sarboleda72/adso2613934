@@ -21,23 +21,6 @@
     </header>
 
     <nav class="nav">
-      <menu>
-        <a href="login.html">
-          <img src="images/ico-login.svg" alt="Login">
-          Login
-        </a>
-        <img src="images/Line-menu.svg" alt="">
-        <a href="">
-          <img src="images/ico-register.svg" alt="Register">
-          Register
-        </a>
-        <img src="images/Line-menu.svg" alt="">
-        <a href="">
-          <img src="images/ico-catalogue.svg" alt="Catalogue">
-          Catalogue
-        </a>
-        <img src="images/Line-menu.svg" alt="">
-      </menu>
     </nav>
 
     <section class="scroll">
@@ -135,6 +118,7 @@
 
   <script>
     $(document).ready(function () {
+      $(".nav").load("menu.html");
       $(".owl-carousel").owlCarousel({
         loop: true,
         margin: 1,
@@ -147,7 +131,7 @@
       });
 
       $('header').on('click', '.btn-burger', function () {
-        $(this).toggleClass('active')
+        $(this).toggleClass('active');
 
         if ($(this).attr('src') === 'images/menu.svg') {
           $(this).attr('src', 'images/icon-x.svg');
