@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>GameApp - dashboard</title>
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/fonts.css">
+    <link rel="stylesheet" href="css/master.css">
+    <link rel="stylesheet" href="css/owl.carousel.min.css">
+    <link rel="stylesheet" href="css/owl.theme.default.min.css">
+</head>
+
+<body>
+    <main class="users">
+
+        <header>
+            <a href="javascript:history.back()">
+                <img class="back" src="images/back.svg" alt="menu">
+            </a>
+            <img class="logo" src="images/logo-user.svg" alt="Logo">
+            <img class="btn-burger" src="images/menu.svg" alt="menu">
+
+        </header>
+
+        <nav class="nav"></nav>
+
+        <section class="scroll">
+
+            <div class="add">
+                <a href="">+ add</a>
+            </div>
+
+            <div class="container-dark">
+                <div class="icons">
+                    <img src="images/img-user.png" alt="">
+                </div>
+
+                <div class="text">
+                    <div>
+                        Jeremias Springfield
+                    </div>
+                    <div class="txtAdmin">
+                        Admin
+                    </div>
+                </div>
+
+                <div class="btn">
+                    <a class="view" href="users.html"><img src="images/icon-search.svg" alt=""></a>
+                    <a class="edit" href="users.html"><img src="images/icon-edit.svg" alt=""></a>
+                    <a class="delete" href="users.html"><img src="images/icon-delete.svg" alt=""></a>
+                </div>
+
+            </div>
+
+            <div class="container-light">
+                    <div class="icons">
+                    <img src="images/img-user.png" alt="">
+                </div>
+
+                <div class="text">
+                    <div>
+                        Jeremias Springfield
+                    </div>
+                    <div class="txtAdmin">
+                        Admin
+                    </div>
+                </div>
+                
+                <div class="btn">
+                    <a class="view" href="users.html"><img src="images/icon-search.svg" alt=""></a>
+                    <a class="edit" href="users.html"><img src="images/icon-edit.svg" alt=""></a>
+                    <a class="delete" href="users.html"><img src="images/icon-delete.svg" alt=""></a>
+                </div>
+
+            </div>
+
+            <div class="container-dark">
+                <div class="icons">
+                    <img src="images/img-user.png" alt="">
+                </div>
+
+                <div class="text">
+                    <div>
+                        Jeremias Springfield
+                    </div>
+                    <div class="txtAdmin">
+                        Admin
+                    </div>
+                </div>
+                
+                <div class="btn">
+                    <a class="view" href="users.html"><img src="images/icon-search.svg" alt=""></a>
+                    <a class="edit" href="users.html"><img src="images/icon-edit.svg" alt=""></a>
+                    <a class="delete" href="users.html"><img src="images/icon-delete.svg" alt=""></a>
+                </div>
+
+            </div>
+
+            <div class="container-dark">
+                <div class="icons">
+                    <img src="images/img-user.png" alt="">
+                </div>
+
+                <div class="text">
+                    <div>
+                        Jeremias Springfield
+                    </div>
+                    <div class="txtAdmin">
+                        Admin
+                    </div>
+                </div>
+
+                <div class="btn">
+                    <a class="view" href="users.html"><img src="images/icon-search.svg" alt=""></a>
+                    <a class="edit" href="users.html"><img src="images/icon-edit.svg" alt=""></a>
+                    <a class="delete" href="users.html"><img src="images/icon-delete.svg" alt=""></a>
+                </div>
+
+            </div>
+
+            <div class="container-light">
+                    <div class="icons">
+                    <img src="images/img-user.png" alt="">
+                </div>
+
+                <div class="text">
+                    <div>
+                        Jeremias Springfield
+                    </div>
+                    <div class="txtAdmin">
+                        Admin
+                    </div>
+                </div>
+                
+                <div class="btn">
+                    <a class="view" href="users.html"><img src="images/icon-search.svg" alt=""></a>
+                    <a class="edit" href="users.html"><img src="images/icon-edit.svg" alt=""></a>
+                    <a class="delete" href="users.html"><img src="images/icon-delete.svg" alt=""></a>
+                </div>
+
+            </div>
+
+            <div class="container-dark">
+                <div class="icons">
+                    <img src="images/img-user.png" alt="">
+                </div>
+
+                <div class="text">
+                    <div>
+                        Jeremias Springfield
+                    </div>
+                    <div class="txtAdmin">
+                        Admin
+                    </div>
+                </div>
+                
+                <div class="btn">
+                    <a class="view" href="users.html"><img src="images/icon-search.svg" alt=""></a>
+                    <a class="edit" href="users.html"><img src="images/icon-edit.svg" alt=""></a>
+                    <a class="delete" href="users.html"><img src="images/icon-delete.svg" alt=""></a>
+                </div>
+
+            </div>
+
+
+        </section>
+
+
+    </main>
+
+    <script src="js/jquery-3.7.1.min.js"></script>
+    <script src="js/owl.carousel.min.js"></script>
+
+    <script>
+        $(document).ready(function () {
+            $(".nav").load("menu.html");
+
+            $('header').on('click', '.btn-burger', function () {
+                $(this).toggleClass('active');
+
+
+                if ($(this).attr('src') === 'images/menu.svg') {
+                    $(this).attr('src', 'images/icon-x.svg');
+                } else {
+                    $(this).attr('src', 'images/menu.svg');
+                }
+                $('.nav').toggleClass('active')
+            })
+        });
+    </script>
+</body>
+
+</html>
