@@ -29,7 +29,7 @@
         <section class="scroll">
 
             <div class="add">
-                <a href="">+ add</a>
+                <a href="addUsers.html">+ add</a>
             </div>
 
             <div class="container-dark">
@@ -47,36 +47,14 @@
                 </div>
 
                 <div class="btn">
-                    <a class="view" href="users.html"><img src="images/icon-search.svg" alt=""></a>
-                    <a class="edit" href="users.html"><img src="images/icon-edit.svg" alt=""></a>
-                    <a class="delete" href="users.html"><img src="images/icon-delete.svg" alt=""></a>
+                    <a class="view" href="viewuser.html"><img src="images/icon-search.svg" alt=""></a>
+                    <a class="edit" href="edituser.html"><img src="images/icon-edit.svg" alt=""></a>
+                    <a class="delete" href="#"><img src="images/icon-delete.svg" alt=""></a>
                 </div>
 
             </div>
 
             <div class="container-light">
-                    <div class="icons">
-                    <img src="images/img-user.png" alt="">
-                </div>
-
-                <div class="text">
-                    <div>
-                        Jeremias Springfield
-                    </div>
-                    <div class="txtAdmin">
-                        Admin
-                    </div>
-                </div>
-                
-                <div class="btn">
-                    <a class="view" href="users.html"><img src="images/icon-search.svg" alt=""></a>
-                    <a class="edit" href="users.html"><img src="images/icon-edit.svg" alt=""></a>
-                    <a class="delete" href="users.html"><img src="images/icon-delete.svg" alt=""></a>
-                </div>
-
-            </div>
-
-            <div class="container-dark">
                 <div class="icons">
                     <img src="images/img-user.png" alt="">
                 </div>
@@ -89,11 +67,11 @@
                         Admin
                     </div>
                 </div>
-                
+
                 <div class="btn">
-                    <a class="view" href="users.html"><img src="images/icon-search.svg" alt=""></a>
-                    <a class="edit" href="users.html"><img src="images/icon-edit.svg" alt=""></a>
-                    <a class="delete" href="users.html"><img src="images/icon-delete.svg" alt=""></a>
+                    <a class="view" href="viewuser.html"><img src="images/icon-search.svg" alt=""></a>
+                    <a class="edit" href="edituser.html"><img src="images/icon-edit.svg" alt=""></a>
+                    <a class="delete" href="#"><img src="images/icon-delete.svg" alt=""></a>
                 </div>
 
             </div>
@@ -113,15 +91,15 @@
                 </div>
 
                 <div class="btn">
-                    <a class="view" href="users.html"><img src="images/icon-search.svg" alt=""></a>
-                    <a class="edit" href="users.html"><img src="images/icon-edit.svg" alt=""></a>
-                    <a class="delete" href="users.html"><img src="images/icon-delete.svg" alt=""></a>
+                    <a class="view" href="viewuser.html"><img src="images/icon-search.svg" alt=""></a>
+                    <a class="edit" href="edituser.html"><img src="images/icon-edit.svg" alt=""></a>
+                    <a class="delete" href="#"><img src="images/icon-delete.svg" alt=""></a>
                 </div>
 
             </div>
 
             <div class="container-light">
-                    <div class="icons">
+                <div class="icons">
                     <img src="images/img-user.png" alt="">
                 </div>
 
@@ -133,11 +111,11 @@
                         Admin
                     </div>
                 </div>
-                
+
                 <div class="btn">
-                    <a class="view" href="users.html"><img src="images/icon-search.svg" alt=""></a>
-                    <a class="edit" href="users.html"><img src="images/icon-edit.svg" alt=""></a>
-                    <a class="delete" href="users.html"><img src="images/icon-delete.svg" alt=""></a>
+                    <a class="view" href="viewuser.html"><img src="images/icon-search.svg" alt=""></a>
+                    <a class="edit" href="edituser.html"><img src="images/icon-edit.svg" alt=""></a>
+                    <a class="delete" href="#"><img src="images/icon-delete.svg" alt=""></a>
                 </div>
 
             </div>
@@ -155,18 +133,28 @@
                         Admin
                     </div>
                 </div>
-                
+
                 <div class="btn">
-                    <a class="view" href="users.html"><img src="images/icon-search.svg" alt=""></a>
-                    <a class="edit" href="users.html"><img src="images/icon-edit.svg" alt=""></a>
-                    <a class="delete" href="users.html"><img src="images/icon-delete.svg" alt=""></a>
+                    <a class="view" href="viewuser.html"><img src="images/icon-search.svg" alt=""></a>
+                    <a class="edit" href="edituser.html"><img src="images/icon-edit.svg" alt=""></a>
+                    <a class="delete" href="#"><img src="images/icon-delete.svg" alt=""></a>
                 </div>
 
             </div>
 
+            <div id="myModal" class="modal">
+                <div class="modal-content">
+                    <span class="close">&times;</span>
+                    <p>¿Estás seguro de que quieres eliminar este usuario?</p>
+                    <div>
+                        <button id="confirmDelete">Si</button>
+                        <button id="noDelete">No</button>
+                    </div>
+                    
+                </div>
+            </div>
 
         </section>
-
 
     </main>
 
@@ -180,14 +168,35 @@
             $('header').on('click', '.btn-burger', function () {
                 $(this).toggleClass('active');
 
-
                 if ($(this).attr('src') === 'images/menu.svg') {
                     $(this).attr('src', 'images/icon-x.svg');
                 } else {
                     $(this).attr('src', 'images/menu.svg');
                 }
                 $('.nav').toggleClass('active')
-            })
+            });
+
+            $(".delete").click(function () {
+                $("#myModal").css("display", "block");
+            });
+
+            $(".close").click(function () {
+                $("#myModal").css("display", "none");
+            });
+
+            $(window).click(function (event) {
+                if (event.target == $("#myModal")[0]) {
+                    $("#myModal").css("display", "none");
+                }
+            });
+
+            $("#confirmDelete").click(function () {
+                $("#myModal").css("display", "none");
+            });
+
+            $("#noDelete").click(function () {
+                $("#myModal").css("display", "none");
+            });
         });
     </script>
 </body>

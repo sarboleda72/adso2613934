@@ -49,6 +49,7 @@ body {
   }
 
   section.scroll {
+    margin-top: 50px;
     scrollbar-width: none;
     overflow-y: scroll;
     height: 700px;
@@ -516,7 +517,6 @@ main.dashboard {
   section.scroll {
     display: flex;
     flex-direction: column;
-    margin-top: 50px;
     color: var(--color-six);
     font-weight: 400;
     gap: 1rem;
@@ -627,7 +627,6 @@ main.users {
   section.scroll {
     display: flex;
     flex-direction: column;
-    margin-top: 50px;
     color: var(--color-six);
     font-weight: 400;
     gap: 1rem;
@@ -650,8 +649,6 @@ main.users {
         text-decoration: none;
       }
     }
-
-
 
     div.container-dark {
       width: 300px;
@@ -701,14 +698,14 @@ main.users {
           text-decoration: none;
         }
 
-        a.view{
+        a.view {
           border-top-left-radius: 15px;
-          border-bottom-left-radius: 15px; 
+          border-bottom-left-radius: 15px;
         }
 
-        a.delete{
+        a.delete {
           border-top-right-radius: 15px;
-          border-bottom-right-radius: 15px; 
+          border-bottom-right-radius: 15px;
         }
       }
     }
@@ -759,16 +756,346 @@ main.users {
           text-decoration: none;
         }
 
-        a.view{
+        a.view {
           border-top-left-radius: 15px;
-          border-bottom-left-radius: 15px; 
+          border-bottom-left-radius: 15px;
         }
 
-        a.delete{
+        a.delete {
           border-top-right-radius: 15px;
-          border-bottom-right-radius: 15px; 
+          border-bottom-right-radius: 15px;
         }
       }
+    }
+
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 9999;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.5);
+    }
+
+    .modal-content {
+      display: flex;
+      flex-direction: column;
+      background-color: #fff;
+      margin: 20% auto;
+      padding: 20px;
+      border: 1px solid #888;
+      max-width: 300px;
+      max-height: 180px;
+      border-radius: 20px;
+
+      div {
+        display: flex;
+        justify-content: space-between;
+
+        #confirmDelete {
+          cursor: pointer;
+          margin-top: 10px;
+          width: 100px;
+          height: 40px;
+          border-radius: 20px;
+          background-color: var(--color-third);
+          font: var(--ff-body);
+          font-weight: 400;
+          color: var(--color-six);
+          font-size: 20px;
+        }
+
+        #noDelete {
+          cursor: pointer;
+          margin-top: 10px;
+          width: 100px;
+          height: 40px;
+          border-radius: 20px;
+          background-color: var(--color-second);
+          font: var(--ff-body);
+          font-weight: 400;
+          color: var(--color-six);
+          font-size: 20px;
+        }
+      }
+
+      p {
+        margin-top: 10px;
+      }
+    }
+
+    .close {
+      color: black;
+      float: left;
+      font-size: 28px;
+      font-weight: bold;
+    }
+
+    .close:hover,
+    .close:focus {
+      color: black;
+      text-decoration: none;
+      cursor: pointer;
+    }
+
+  }
+}
+
+/* ------------------- */
+/*08- add Users*/
+/* ------------------- */
+main.addUsers {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+
+  form.frmRegister {
+    display: flex;
+    flex-direction: column;
+    margin-top: 10px;
+    width: 300px;
+    gap: 10px;
+    font: var(--ff-body);
+
+    img {
+      width: 50px;
+    }
+
+    div.imgUpload {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      img.upload {
+        width: 190px;
+        margin: 0px;
+      }
+
+      #fileInput {
+        display: none;
+      }
+
+      cursor: pointer;
+      max-width: 100%;
+      height: auto;
+    }
+
+
+
+    input {
+      height: 50px;
+      border-radius: 25px;
+      text-indent: 30px;
+      font: var(--ff-body);
+      color: var(--color-six);
+      background-color: var(--color-five);
+      padding-right: 50px;
+      width: 300px;
+
+      &::placeholder {
+        color: var(--color-six);
+        opacity: .7;
+      }
+    }
+
+    label {
+      position: relative;
+
+      img {
+        cursor: pointer;
+        position: absolute;
+        right: 10px;
+        top: 12.5px;
+        width: 20px;
+      }
+
+      img:hover {
+        transform: scale(1.03);
+      }
+    }
+
+    button {
+      cursor: pointer;
+      margin-top: 0px;
+      width: 300px;
+      height: 50px;
+      border-radius: 25px;
+      background-color: var(--color-second);
+      font: var(--ff-body);
+      font-weight: 400;
+      color: var(--color-six);
+      font-size: 30px;
+    }
+
+    button:hover {
+      background-color: var(--color-third);
+      transform: scale(1.01) translateY(-1px);
+    }
+
+    button:active {
+      background-color: var(--color-fourth);
+    }
+
+    a {
+      margin-top: 50px;
+      font: var(--ff-body);
+      font-weight: 400;
+      color: var(--color-five);
+      font-size: 20px;
+    }
+  }
+}
+
+/* ------------------- */
+/*09- view Users*/
+/* ------------------- */
+
+main.viewUser {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+
+  form.frmRegister {
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+    gap: 10px;
+    font: var(--ff-body);
+
+    img {
+      width: 50px;
+    }
+
+    div.imgUpload {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      img.upload {
+        width: 190px;
+        margin: 0px;
+      }
+      
+    }
+
+    input {
+      height: 50px;
+      border-radius: 25px;
+      text-indent: 30px;
+      font: var(--ff-body);
+      font-weight: 400;
+      color: var(--color-six);
+      background-color: var(--color-five);
+      padding-right: 50px;
+      width: 300px;
+      pointer-events: none;
+      user-select: none;
+    }
+
+  }
+}
+
+/* ------------------- */
+/*10- edit user*/
+/* ------------------- */
+
+main.editUser {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+
+
+  form.frmRegister {
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+    gap: 10px;
+    font: var(--ff-body);
+
+    img {
+      width: 50px;
+    }
+
+    div.imgUpload {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+      max-width: 100%;
+      height: auto;
+
+      img.upload {
+        width: 190px;
+        margin: 0px;
+      }
+
+      #fileInput {
+        display: none;
+      }
+    }
+
+    input {
+      height: 50px;
+      border-radius: 25px;
+      text-indent: 30px;
+      font: var(--ff-body);
+      font-weight: 400;
+      color: var(--color-six);
+      background-color: var(--color-five);
+      padding-right: 50px;
+      width: 300px;
+
+    }
+
+    label {
+      position: relative;
+
+      img {
+        cursor: pointer;
+        position: absolute;
+        right: 10px;
+        top: 12.5px;
+        width: 20px;
+      }
+
+      img:hover {
+        transform: scale(1.03);
+      }
+    }
+
+    button {
+      cursor: pointer;
+      margin-top: 0px;
+      width: 300px;
+      height: 50px;
+      border-radius: 25px;
+      background-color: var(--color-second);
+      font: var(--ff-body);
+      font-weight: 400;
+      color: var(--color-six);
+      font-size: 30px;
+    }
+
+    button:hover {
+      background-color: var(--color-third);
+      transform: scale(1.01) translateY(-1px);
+    }
+
+    button:active {
+      background-color: var(--color-fourth);
+    }
+
+    a {
+      margin-top: 50px;
+      font: var(--ff-body);
+      font-weight: 400;
+      color: var(--color-five);
+      font-size: 20px;
     }
   }
 }
