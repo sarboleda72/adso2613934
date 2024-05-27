@@ -77,6 +77,17 @@ body {
     img.title-menu {
       margin-block: 2rem;
     }
+
+    a.btncustomer {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: var(--color-second);
+      border-radius: 25px;
+      width: 200px;
+      height: 50px;
+    }
+
   }
 
   nav.nav.active {
@@ -84,11 +95,18 @@ body {
     transform: translateY(0) scale(1);
   }
 
+
   menu {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+
+    div {
+      margin-bottom: 20px;
+      font: var(--ff-body);
+      font-weight: 400;
+    }
 
     a:is(:link, :visited) {
       color: var(--color-five);
@@ -99,13 +117,13 @@ body {
       justify-content: start;
       align-items: center;
       gap: .6rem;
-      padding-left: 20px;
       margin-top: 0.6rem;
       margin-bottom: 0.6rem;
       transition: all 0.3s ease-in;
       text-decoration: none;
       width: 300px;
     }
+
 
     a:is(:hover) {
       transform: scale(1.02) translateY(-5px);
@@ -979,7 +997,7 @@ main.viewUser {
         width: 190px;
         margin: 0px;
       }
-      
+
     }
 
     input {
@@ -1090,12 +1108,90 @@ main.editUser {
       background-color: var(--color-fourth);
     }
 
-    a {
-      margin-top: 50px;
-      font: var(--ff-body);
-      font-weight: 400;
-      color: var(--color-five);
-      font-size: 20px;
+  }
+}
+
+/* ------------------- */
+/*11- profile*/
+/* ------------------- */
+
+main.profile {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+
+  div.imgUpload {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    img.upload {
+      width: 190px;
+      margin: 0px;
     }
   }
+
+  div.personalDate{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10px;
+    gap:1rem;
+
+    div.name{
+      text-align: center;
+      font:var(--ff-heading);
+      font-weight: 400;
+  
+    }
+
+    div.rol{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font:var(--ff-body);
+      font-weight: 400;
+      color:var(--color-six);
+      width: 155px;
+      height: 40px;
+      background-color: var(--color-five);
+      border-radius: 20px;
+    }
+  }
+
+  div.profileData{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 90px;
+    gap: 2rem;
+
+
+    div{
+      display: flex;
+      justify-content: space-between;
+      width: 300px;
+
+      div{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        font: var(--ff-body);
+        font-weight: 400;
+        color: var(--color-six);
+        background-color: var(--color-five);
+        width: 130px;
+        height: 40px;
+        border-radius: 20px;
+      }
+
+    }
+
+  }
+
+
 }
