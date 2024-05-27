@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>GameApp - Users</title>
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/fonts.css">
+    <link rel="stylesheet" href="css/master.css">
+    <link rel="stylesheet" href="css/owl.carousel.min.css">
+    <link rel="stylesheet" href="css/owl.theme.default.min.css">
+</head>
+
+<body>
+    <main class="categories">
+
+        <header>
+            <a href="javascript:history.back()">
+                <img class="back" src="images/back.svg" alt="menu">
+            </a>
+            <img class="logo" src="images/logo-categories.svg" alt="Logo">
+            <img class="btn-burger" src="images/menu.svg" alt="menu">
+
+        </header>
+
+        <nav class="nav"></nav>
+
+        <section class="scroll">
+
+            <div class="add">
+                <a href="addCategories.html">+ add</a>
+            </div>
+
+            <div class="container-dark">
+                <div class="icons">
+                    <img src="images/img-cat1.png" alt="">
+                </div>
+
+                <div class="text">
+                    <div>
+                        RPG
+                    </div>
+                </div>
+
+                <div class="btn">
+                    <a class="edit" href="editcategories.html"><img src="images/icon-edit.svg" alt=""></a>
+                    <a class="delete" href="#"><img src="images/icon-delete.svg" alt=""></a>
+                </div>
+
+            </div>
+
+            <div class="container-light">
+                <div class="icons">
+                    <img src="images/img-cat2.png" alt="">
+                </div>
+
+                <div class="text">
+                    <div>
+                        SPORT
+                    </div>
+
+                </div>
+
+                <div class="btn">
+                    
+                    <a class="edit" href="editcategories.html"><img src="images/icon-edit.svg" alt=""></a>
+                    <a class="delete" href="#"><img src="images/icon-delete.svg" alt=""></a>
+                </div>
+
+            </div>
+
+            <div class="container-dark">
+                <div class="icons">
+                    <img src="images/img-cat3.png" alt="">
+                </div>
+
+                <div class="text">
+                    <div>
+                        SHOOTER
+                    </div>
+
+                </div>
+
+                <div class="btn">
+                    
+                    <a class="edit" href="editcategories.html"><img src="images/icon-edit.svg" alt=""></a>
+                    <a class="delete" href="#"><img src="images/icon-delete.svg" alt=""></a>
+                </div>
+
+            </div>
+
+            <div class="container-light">
+                <div class="icons">
+                    <img src="images/img-cat4.png" alt="">
+                </div>
+
+                <div class="text">
+                    <div>
+                        CAR
+                    </div>
+
+                </div>
+
+                <div class="btn">
+                    
+                    <a class="edit" href="editcategories.html"><img src="images/icon-edit.svg" alt=""></a>
+                    <a class="delete" href="#"><img src="images/icon-delete.svg" alt=""></a>
+                </div>
+
+            </div>
+
+            <div class="container-dark">
+                <div class="icons">
+                    <img src="images/img-cat1.png" alt="">
+                </div>
+
+                <div class="text">
+                    <div>
+                        RPG
+                    </div>
+                </div>
+
+                <div class="btn">
+                    <a class="edit" href="editcategories.html"><img src="images/icon-edit.svg" alt=""></a>
+                    <a class="delete" href="#"><img src="images/icon-delete.svg" alt=""></a>
+                </div>
+
+            </div>
+
+            <div id="myModal" class="modal">
+                <div class="modal-content">
+                    <span class="close">&times;</span>
+                    <p>¿Estás seguro de que quieres eliminar esta categoria?</p>
+                    <div>
+                        <button id="confirmDelete">Si</button>
+                        <button id="noDelete">No</button>
+                    </div>
+                    
+                </div>
+            </div>
+
+        </section>
+
+    </main>
+
+    <script src="js/jquery-3.7.1.min.js"></script>
+    <script src="js/owl.carousel.min.js"></script>
+
+    <script>
+        $(document).ready(function () {
+            $(".nav").load("menulogin.html");
+
+            $('header').on('click', '.btn-burger', function () {
+                $(this).toggleClass('active');
+
+                if ($(this).attr('src') === 'images/menu.svg') {
+                    $(this).attr('src', 'images/icon-x.svg');
+                } else {
+                    $(this).attr('src', 'images/menu.svg');
+                }
+                $('.nav').toggleClass('active')
+            });
+
+            $(".delete").click(function () {
+                $("#myModal").css("display", "block");
+            });
+
+            $(".close").click(function () {
+                $("#myModal").css("display", "none");
+            });
+
+            $(window).click(function (event) {
+                if (event.target == $("#myModal")[0]) {
+                    $("#myModal").css("display", "none");
+                }
+            });
+
+            $("#confirmDelete").click(function () {
+                $("#myModal").css("display", "none");
+            });
+
+            $("#noDelete").click(function () {
+                $("#myModal").css("display", "none");
+            });
+        });
+    </script>
+</body>
+
+</html>
