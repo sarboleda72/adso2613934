@@ -21,7 +21,7 @@ class User extends Authenticatable
         'document',
         'fullname',
         'gender',
-        'birtdate',
+        'birthdate',
         'photo',
         'phone',
         'email',
