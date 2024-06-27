@@ -1,93 +1,99 @@
-<x-guest-layout>
-    <form method="POST" action="{{ route('register') }}">
-        @csrf
+@extends('layouts.app')
+@section('title', 'GameApp - Register')
+@section('classMain', 'register')
 
-        <!-- document -->
-        <div>
-            <x-input-label for="document" :value="__('Document')" />
-            <x-text-input id="document" class="block mt-1 w-full" type="text" name="document" :value="old('document')" required autofocus autocomplete="document" />
-            <x-input-error :messages="$errors->get('document')" class="mt-2" />
-        </div>
+@section('content')
+    <header>
+        <a href="javascript:history.back()">
+            <img class="back" src="images/back.svg" alt="menu">
+        </a>
+        <img class="logo" src="images/logo-register.svg" alt="Logo">
+        <img class="btn-burger" src="images/menu.svg" alt="menu">
+    </header>
 
-        <!-- Name -->
-        <div class="mt-4">
-            <x-input-label for="fullname" :value="__('Full name')" />
-            <x-text-input id="fullname" class="block mt-1 w-full" type="text" name="fullname" :value="old('fullname')" required autofocus autocomplete="fullname" />
-            <x-input-error :messages="$errors->get('fullname')" class="mt-2" />
-        </div>
+    <nav class="nav"></nav>
+    <section class="scroll">
+        <section>
+            <form method="POST" class="frmRegister" action="{{ route('register') }}">
+                @csrf
 
-        <!-- gender -->
-        <div class="mt-4">
-            <x-input-label for="gender" :value="__('Gender')" />
-            <select id="gender" name="gender" class="block mt-1 w-full" required>
-                <option value="Male">Male</option>
-                <option value="Women">Women</option>
-            </select>
-            <x-input-error :messages="$errors->get('gender')" class="mt-2" />
-        </div>
+                <div>
+                    <img src="images/ico-fullname.svg" alt="Document">
+                    Document:
+                </div>
+                <input type="text" name="document" placeholder="1234567890">
 
-        <!-- Birthdate -->
-        <div class="mt-4">
-            <x-input-label for="birthdate" :value="__('Birthdate')" />
-            <x-text-input id="birthdate" class="block mt-1 w-full" type="date" name="birthdate" :value="old('birthdate')" required autofocus autocomplete="birthdate" />
-            <x-input-error :messages="$errors->get('birthdate')" class="mt-2" />
-        </div>
+                <div>
+                    <img src="images/ico-fullname.svg" alt="Fullname">
+                    Full name:
+                </div>
+                <input type="text" name="fullname" placeholder="Jeremias Springfield">
 
-        <!-- Phone -->
-        <div class="mt-4">
-            <x-input-label for="phone" :value="__('Phone')" />
-            <x-text-input id="phone" class="block mt-1 w-full" type="text" name="phone" :value="old('phone')" required autofocus autocomplete="phone" />
-            <x-input-error :messages="$errors->get('phone')" class="mt-2" />
-        </div>
+                <div>
+                    <img src="images/ico-fullname.svg" alt="birthdate">
+                    birthdate:
+                </div>
+                <input type="date" name="birthdate" placeholder="1990-01-01">
 
-        <!-- role -->
-        <div class="mt-4">
-            <x-input-label for="role" :value="__('Role')" />
-            <select id="role" name="role" class="block mt-1 w-full" required>
-                <option value="admin">Admin</option>
-                <option value="user">User</option>
-            </select>
-            <x-input-error :messages="$errors->get('role')" class="mt-2" />
-        </div>
+                <div>
+                    <img src="images/icon-email.svg" alt="Login">
+                    Email:
+                </div>
+                <input type="email" name="email" placeholder="example@host.com">
 
-        <!-- Email Address -->
-        <div class="mt-4">
-            <x-input-label for="email" :value="__('Email')" />
-            <x-text-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autocomplete="username" />
-            <x-input-error :messages="$errors->get('email')" class="mt-2" />
-        </div>
+                <div>
+                    <img src="images/ico-phonenumber.svg" alt="Fullname">
+                    Phone number:
+                </div>
+                <input type="text" name="phone" placeholder="3333333333">
 
-        <!-- Password -->
-        <div class="mt-4">
-            <x-input-label for="password" :value="__('Password')" />
+                <div>
+                    <img src="images/icon-pass.svg" alt="Login">
+                    Password:
+                </div>
+                <!-- Password -->
+                <div class="mt-4">
+                    <x-input-label for="password" :value="__('')" />
 
-            <x-text-input id="password" class="block mt-1 w-full"
-                            type="password"
-                            name="password"
-                            required autocomplete="new-password" />
+                    <x-text-input id="password" class="block mt-1 w-full" type="password" name="password" required
+                        autocomplete="new-password" />
 
-            <x-input-error :messages="$errors->get('password')" class="mt-2" />
-        </div>
+                    <x-input-error :messages="$errors->get('password')" class="mt-2" />
+                </div>
 
-        <!-- Confirm Password -->
-        <div class="mt-4">
-            <x-input-label for="password_confirmation" :value="__('Confirm Password')" />
+                <!-- Confirm Password -->
+                <div class="mt-4">
+                    <x-input-label for="password_confirmation" :value="__('Confirm Password')" />
 
-            <x-text-input id="password_confirmation" class="block mt-1 w-full"
-                            type="password"
-                            name="password_confirmation" required autocomplete="new-password" />
+                    <x-text-input id="password_confirmation" class="block mt-1 w-full" type="password"
+                        name="password_confirmation" required autocomplete="new-password" />
 
-            <x-input-error :messages="$errors->get('password_confirmation')" class="mt-2" />
-        </div>
+                    <x-input-error :messages="$errors->get('password_confirmation')" class="mt-2" />
+                </div>
 
-        <div class="flex items-center justify-end mt-4">
-            <a class="underline text-sm text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 dark:focus:ring-offset-gray-800" href="{{ route('login') }}">
-                {{ __('Already registered?') }}
-            </a>
+                <button type="submit">register</button>
 
-            <x-primary-button class="ms-4">
-                {{ __('Register') }}
-            </x-primary-button>
-        </div>
-    </form>
-</x-guest-layout>
+            </form>
+        </section>
+    </section>
+@endsection
+
+@section('js')
+    <script>
+        $(document).ready(function() {
+
+            $('header').on('click', '.btn-burger', function() {
+                $(this).toggleClass('active');
+                $(".nav").load("menu.html");
+
+                if ($(this).attr('src') === 'images/menu.svg') {
+                    $(this).attr('src', 'images/icon-x.svg');
+                } else {
+                    $(this).attr('src', 'images/menu.svg');
+                }
+
+                $('.nav').toggleClass('active')
+            })
+        });
+    </script>
+@endsection

@@ -31,7 +31,7 @@ class UserFactory extends Factory
             'fullname'          => fake()->name($gender)." ".fake()->lastName(),
             'birthdate'         => fake()->dateTimeBetween('-30 years','2004-01-01'),
             'phone'             => fake()->phoneNumber(),
-            'photo'             => substr(fake()->image($dir = './public/img', $width = 640, $height = 480),13),
+            'photo'             => substr(fake()->image($dir = './public/img', $width = 50, $height = 50),13),
             'email'             => fake()->unique()->safeEmail(),
             'email_verified_at' => now(),
             'password'          => static::$password ??= Hash::make('password'),
