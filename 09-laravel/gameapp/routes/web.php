@@ -22,6 +22,10 @@ Route::get('/menu', function () {
     return view('partials.menu');
 });
 
+Route::get('/menulogin', function () {
+    return view('partials.menulogin');
+});
+
 Route::get('/catalogue', function () {
     return view('catalogue');
 });

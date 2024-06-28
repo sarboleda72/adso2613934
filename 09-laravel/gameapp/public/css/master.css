@@ -467,6 +467,13 @@ main.register {
       }
     }
 
+    .gender{
+      height: 50px;
+      width: 300px;
+      text-indent: 20px;
+      border-radius: 25px;
+    }
+
     label {
       position: relative;
 

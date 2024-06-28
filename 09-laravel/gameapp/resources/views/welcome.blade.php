@@ -21,6 +21,7 @@
 @endsection
 
 @section('js')
+    <script>
         $(document).ready(function() {
             $(".owl-carousel").owlCarousel({
                 loop: true,
@@ -32,4 +33,5 @@
                 },
             });
         });
+    </script>
 @endsection

@@ -18,7 +18,7 @@
                 @csrf
 
                 <div>
-                    <img src="images/ico-fullname.svg" alt="Document">
+                    <img src="images/icon-document.svg" alt="Document">
                     Document:
                 </div>
                 <input type="text" name="document" placeholder="1234567890">
@@ -30,10 +30,23 @@
                 <input type="text" name="fullname" placeholder="Jeremias Springfield">
 
                 <div>
-                    <img src="images/ico-fullname.svg" alt="birthdate">
+                    <img src="images/ico-date.svg" alt="birthdate">
                     birthdate:
                 </div>
                 <input type="date" name="birthdate" placeholder="1990-01-01">
+
+                <div>
+                    <img src="images/ico-gender.svg" alt="birthdate">
+                    Gender:
+                </div>
+
+                <div>
+                    <select name="gender" class="gender">
+                        <option value="Other">Other</option>
+                        <option value="Male">Male</option>
+                        <option value="Female">Female</option>
+                    </select>
+                </div>
 
                 <div>
                     <img src="images/icon-email.svg" alt="Login">
@@ -62,8 +75,13 @@
                 </div>
 
                 <!-- Confirm Password -->
+                <div>
+                    <img src="images/ico-confirm.svg" alt="Fullname">
+                    Confirm Password:
+                </div>
+
                 <div class="mt-4">
-                    <x-input-label for="password_confirmation" :value="__('Confirm Password')" />
+                    <x-input-label for="password_confirmation" :value="__('')" />
 
                     <x-text-input id="password_confirmation" class="block mt-1 w-full" type="password"
                         name="password_confirmation" required autocomplete="new-password" />
@@ -84,7 +102,7 @@
 
             $('header').on('click', '.btn-burger', function() {
                 $(this).toggleClass('active');
-                $(".nav").load("menu.html");
+                $(".nav").load("/menu");
 
                 if ($(this).attr('src') === 'images/menu.svg') {
                     $(this).attr('src', 'images/icon-x.svg');
