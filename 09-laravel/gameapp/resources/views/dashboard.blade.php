@@ -25,7 +25,7 @@
         </div>
 
         <div class="btn">
-            <a href="users.html">view</a>
+            <a href="{{ url('users') }}">view</a>
         </div>
         
     </div>
