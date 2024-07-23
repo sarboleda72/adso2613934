@@ -1,8 +1,10 @@
 <?php
 
+use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
+use App\Models\User;
 
 /*
 |--------------------------------------------------------------------------
@@ -36,9 +38,13 @@ Route::get('/listgames', function () {
     return view('listgames', ['games' => $games]);
 });
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+Route::get('/profile', function () {
+    $user = User::where('id', auth()->id())->first(); 
+    return view('profile', ['user' => $user]);
+});
+
+
+Route::get('/dashboard',[DashboardController::class,'index'])->name('dashboard')->middleware(['auth', 'verified']);
 
 Route::middleware('auth')->group(function () {
 /*     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

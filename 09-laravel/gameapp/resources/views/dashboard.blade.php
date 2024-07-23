@@ -11,7 +11,9 @@
     <img class="btn-burger" src="images/menu.svg" alt="menu">
 </header>
 
-<nav class="nav"></nav>
+<nav class="nav">
+    @include('partials.menulogin')
+</nav>
 
 <section class="scroll">
     <div class="container-dark">
@@ -66,12 +68,9 @@
 @section('js')
 <script>
     $(document).ready(function () {
-        $(".nav").load("/menulogin");
-
         $('header').on('click', '.btn-burger', function () {
             $(this).toggleClass('active');
             
-
             if ($(this).attr('src') === 'images/menu.svg') {
                 $(this).attr('src', 'images/icon-x.svg');
             } else {

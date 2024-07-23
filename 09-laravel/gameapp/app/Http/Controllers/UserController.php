@@ -14,7 +14,8 @@ class UserController extends Controller
     {
         // $user= User::All();
         $users = User::paginate(20);   
-        return view('users.index')->with('users', $users);
+        $user = User::where('id', auth()->id())->first();
+        return view('users.index')->with(['users'=> $users, 'user'=>$user]);
         //
     }
 

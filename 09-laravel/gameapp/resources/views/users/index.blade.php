@@ -13,7 +13,9 @@
 
 </header>
 
-<nav class="nav"></nav>
+<nav class="nav">
+    @include('partials.menulogin')
+</nav>
 
 <section class="scroll">
 
@@ -69,8 +71,6 @@
 
 <script>
     $(document).ready(function () {
-        $(".nav").load("menulogin");
-
         $('header').on('click', '.btn-burger', function () {
             $(this).toggleClass('active');
 

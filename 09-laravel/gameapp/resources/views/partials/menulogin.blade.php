@@ -1,19 +1,19 @@
 <menu>
     <div class="imgUpload">
-        <img src="images/img-viewUser.png" class="upload" alt="upload photo">
+        <img src="img/{{ $user->photo }}" class="upload" alt="upload photo">
     </div>
 
-    <div>Jeremias Springfield</div>
+    <div>{{ $user->fullname }}</div>
 
-    <a href="editUser.html" class="btncustomer">Customer</a>
+    <a href="/editUser" class="btncustomer">{{ $user->role }}</a>
 
-    <a href="profile.html">
+    <a href="/profile">
         <img src="images/icon-profile.svg" alt="Login">
         Profile
     </a>
     <img src="images/Line-menu.svg" alt="">
 
-    <a href="dashboard.html">
+    <a href="/dashboard">
         <img src="images/icon-dashboard.svg" alt="Register">
         Dashboard
     </a>
