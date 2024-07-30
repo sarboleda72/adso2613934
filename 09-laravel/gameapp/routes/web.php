@@ -43,8 +43,8 @@ Route::get('/profile', function () {
     return view('profile', ['user' => $user]);
 });
 
-
 Route::get('/dashboard',[DashboardController::class,'index'])->name('dashboard')->middleware(['auth', 'verified']);
+
 
 Route::middleware('auth')->group(function () {
 /*     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
