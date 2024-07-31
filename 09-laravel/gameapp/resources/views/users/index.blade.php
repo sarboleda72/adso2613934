@@ -42,23 +42,18 @@
                             alt=""></a>
                     <a class="edit" href="{{ url('users/' . $user->id . '/edit') }}"><img src="images/icon-edit.svg"
                             alt=""></a>
-                    <a class="delete" href="#"><img src="images/icon-delete.svg" alt=""></a>
+                    <a class="delete" href="javascript:;" class="delete" data-fullname="{{ $user->fullname }}"><img
+                            src="images/icon-delete.svg" alt=""></a>
+
+                    <form action="{{ url('users/' . $user->id) }}" method="POST" style="display: none">
+                        @csrf
+                        @method('DELETE')
+                    </form>
                 </div>
 
             </div>
         @endforeach
 
-        <div id="myModal" class="modal">
-            <div class="modal-content">
-                <span class="close">&times;</span>
-                <p>¿Estás seguro de que quieres eliminar este usuario?</p>
-                <div>
-                    <button id="confirmDelete">Si</button>
-                    <button id="noDelete">No</button>
-                </div>
-
-            </div>
-        </div>
     </section>
 
     <div class="paginate">
@@ -82,40 +77,38 @@
                 $('.nav').toggleClass('active')
             });
 
-            $(".delete").click(function() {
-                $("#myModal").css("display", "block");
-            });
 
-            $(".close").click(function() {
-                $("#myModal").css("display", "none");
-            });
-
-            $(window).click(function(event) {
-                if (event.target == $("#myModal")[0]) {
-                    $("#myModal").css("display", "none");
-                }
-            });
-
-            $("#confirmDelete").click(function() {
-                $("#myModal").css("display", "none");
-            });
-
-            $("#noDelete").click(function() {
-                $("#myModal").css("display", "none");
-            });
         });
     </script>
     <script>
-        $(document).ready(function() {
-            @if (session('messages'))
-                Swal.fire({
-                    position: "top",
-                    icon: "success",
-                    title: "{{ session('messages')}}",
-                    showConfirmButton: false,
-                    timer: 5000
-                });
-            @endif
+        @if (session('messages'))
+            Swal.fire({
+                position: "top",
+                icon: "success",
+                title: "{{ session('messages') }}",
+                showConfirmButton: false,
+                timer: 5000
+            });
+        @endif
+
+
+        $('div').on('click', '.delete', function() {
+            $fullname = $(this).attr('data-fullname')
+
+            Swal.fire({
+                title: "Are you sure?",
+                text: "You won't be able to revert this! " + $fullname,
+                icon: "warning",
+                showCancelButton: true,
+                confirmButtonColor: "#3085d6",
+                cancelButtonColor: "#d33",
+                confirmButtonText: "Yes, delete it!"
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    $(this).next().submit()
+                }
+            });
+
         })
     </script>
 @endsection

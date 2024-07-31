@@ -59,8 +59,9 @@ class UserController extends Controller
      */
     public function show(User $user)
     {
-        //
-        return view('user.viewuser');
+        //dd($user->toArray());
+        $userAuth = User::where('id', auth()->id())->first();
+        return view('users.show')->with(['users'=> $user, 'user'=>$userAuth]);
         
     }
 
@@ -70,14 +71,37 @@ class UserController extends Controller
     public function edit(User $user)
     {
         //
+        $userAuth = User::where('id', auth()->id())->first();
+        return view('users.edit')->with(['users'=>$user, 'user'=>$userAuth]); 
+        
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, User $user)
+    public function update(UserRequest $request, User $user)
     {
         //
+        if($request->hasFile('photo')){
+            if($request->hasFile('photo')){
+                $photo = time().'.'.$request->photo->extension();
+                $request->photo->move(public_path('images'), $photo);
+            }
+        }else{
+            $photo = 'no-photo.png';
+        }
+
+        $user->document = $request->document;
+        $user->fullname = $request->fullname;
+        $user->gender = $request->gender;
+        $user->birthdate = $request->birthdate;
+        $user->photo = $photo;
+        $user->phone = $request->phone;
+        $user->email = $request->email;
+        
+        if($user->save()){
+            return redirect('users')->with('messages', 'The user: '. $user->fullname.'was successfully update!');
+        }
     }
 
     /**
@@ -86,5 +110,9 @@ class UserController extends Controller
     public function destroy(User $user)
     {
         //
+        if($user->delete()){
+            return redirect('users')->with('messages', 'The user: '. $user->fullname.'was successfully delete!');
+        }
+
     }
 }

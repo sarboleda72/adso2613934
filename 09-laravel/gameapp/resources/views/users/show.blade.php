@@ -5,10 +5,10 @@
 @section('content')
     <header>
         <a href="javascript:history.back()">
-            <img class="back" src="images/back.svg" alt="menu">
+            <img class="back" src="{{asset('images/back.svg')}}" alt="menu">
         </a>
-        <img class="logo" src="images/logo-viewUser.svg" alt="Logo">
-        <img class="btn-burger" src="images/menu.svg" alt="menu">
+        <img class="logo" src="{{asset('images/logo-viewUser.svg')}}" alt="Logo">
+        <img class="btn-burger" src="{{asset('images/menu.svg')}}" alt="menu">
     </header>
 
     <nav class="nav">
@@ -19,26 +19,45 @@
         <form action="" class="frmRegister">
 
             <div class="imgUpload">
-                <img src="images/img-viewUser.png" class="upload" alt="upload photo">
+                <img src="{{ asset('img').'/'.$users->photo }}" class="upload" alt="upload photo">
             </div>
 
             <div>
-                <img src="images/ico-fullname.svg" alt="Fullname">
+                <img src="{{ asset('images/icon-document.svg') }}" alt="Document">
+                Document:
+            </div>
+            <input type="text" name="document" value="{{ $users->document }}">
+
+            <div>
+                <img src="{{ asset('images/ico-fullname.svg') }}" alt="Fullname">
                 Full name:
             </div>
-            <input type="text" value="Jeremias Springfield">
+            <input type="text" value="{{ $users->fullname }}">
 
             <div>
-                <img src="images/icon-email.svg" alt="Login">
+                <img src="{{ asset('images/ico-date.svg') }}" alt="birthdate">
+                birthdate:
+            </div>
+            <input type="date" name="birthdate" value="{{ $users->birthdate}}">
+
+            <div>
+                <img src="{{ asset('images/ico-gender.svg') }}" alt="birthdate">
+                Gender:
+            </div>
+            <input type="text" value="{{ $users->gender }}">
+            
+
+            <div>
+                <img src="{{asset('images/icon-email.svg')}}" alt="Login">
                 Email:
             </div>
-            <input type="email" value="example@host.com">
+            <input type="email" value="{{ $users->email }}">
 
             <div>
-                <img src="images/ico-phonenumber.svg" alt="Fullname">
+                <img src="{{asset('images/ico-phonenumber.svg')}}" alt="Fullname">
                 Phone number:
             </div>
-            <input type="text" value="3333333333">
+            <input type="text" value="{{ $users->phone }}">
 
         </form>
     </section>
@@ -50,10 +69,10 @@
             $('header').on('click', '.btn-burger', function() {
                 $(this).toggleClass('active');
 
-                if ($(this).attr('src') === 'images/menu.svg') {
-                    $(this).attr('src', 'images/icon-x.svg');
+                if ($(this).attr('src') === '{{asset('images/menu.svg')}}') {
+                    $(this).attr('src', '{{asset('images/icon-x.svg')}}');
                 } else {
-                    $(this).attr('src', 'images/menu.svg');
+                    $(this).attr('src', '{{asset('images/menu.svg')}}');
                 }
                 $('.nav').toggleClass('active')
             })
