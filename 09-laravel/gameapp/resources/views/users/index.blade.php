@@ -22,7 +22,15 @@
         <div class="add">
             <a href="{{ url('users/create') }}">+ add</a>
         </div>
-        @foreach ($users as $user)
+
+        <input type="text" id="qsearch" placeholder="Search">
+
+        <div class="loader"></div>
+
+        <div class="insert">
+            
+
+            @foreach ($users as $user)
             <div class="container-dark">
                 <div class="icons">
                     <img src="img/{{ $user->photo }}" alt="">
@@ -53,6 +61,9 @@
 
             </div>
         @endforeach
+        </div>
+
+        
 
     </section>
 
@@ -77,10 +88,11 @@
                 $('.nav').toggleClass('active')
             });
 
+            $('.loader').hide();
+
 
         });
-    </script>
-    <script>
+
         @if (session('messages'))
             Swal.fire({
                 position: "top",
@@ -108,6 +120,28 @@
                     $(this).next().submit()
                 }
             });
+
+        })
+
+        // ---- reconocer el cambio en el input buscador
+        $('#qsearch').on('keyup', function(e){
+            e.preventDefault();
+            $query = $(this).val();
+            $token = $('input[name=_token]').val();
+            $model= 'users';
+
+            $('.loader').show();
+            $('.insert').hide();
+            
+
+            $.post($model+'/search', 
+                {q: $query, _token: $token},
+                function(data){
+                    $('.loader').hide();
+                    $('.insert').show();
+                    $('.insert').empty().append(data);
+                },
+            )
 
         })
     </script>

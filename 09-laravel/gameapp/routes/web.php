@@ -90,4 +90,9 @@ Route::get('/viewusers', function(){
     return $code . "</table>";
 });
 
+
+// route search
+
+Route::post('users/search', [UserController::class,'search']);
+
 require __DIR__.'/auth.php';
