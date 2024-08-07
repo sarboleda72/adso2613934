@@ -22,6 +22,14 @@
         <div class="add">
             <a href="{{ url('users/create') }}">+ add</a>
         </div>
+        <div class="options">
+            <a href="{{url('exports/users/excel')}}">
+                excel
+            </a>
+            <a href="{{url('exports/users/pdf')}}">
+                pdf
+            </a>
+        </div>
 
         <input type="text" id="qsearch" placeholder="Search">
 

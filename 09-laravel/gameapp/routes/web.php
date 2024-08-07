@@ -95,4 +95,9 @@ Route::get('/viewusers', function(){
 
 Route::post('users/search', [UserController::class,'search']);
 
+//exports
+Route::get('exports/users/pdf', [UserController::class,'pdf']);
+Route::get('exports/users/excel', [UserController::class,'excel']);
+
+
 require __DIR__.'/auth.php';

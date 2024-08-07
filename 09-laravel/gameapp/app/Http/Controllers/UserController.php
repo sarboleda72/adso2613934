@@ -5,6 +5,9 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use Illuminate\Http\Request;
 use App\Http\Requests\UserRequest;
+use PDF;
+use App\Exports\UserExport;
+
 
 class UserController extends Controller
 {
@@ -120,5 +123,15 @@ class UserController extends Controller
         $users= User::names($request->q)->paginate(20);
         return view('users.search')-> with('users', $users);
 
+    }
+
+    public function pdf(){
+        $users = User::all();
+        $pdf = PDF::loadView('users.pdf', compact('users'));
+        return $pdf->download('allusers.pdf');
+    }
+
+    public function excel(){
+        return \Excel::download(new UserExport, 'alluser.xlsx');
     }
 }
