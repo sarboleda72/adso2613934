@@ -1,11 +1,11 @@
 <menu>
     <div class="imgUpload">
-        <img src="{{ asset('img').'/'.$user->photo}}" class="upload" alt="upload photo">
+        <img src="{{ asset('img').'/'.Auth::user()->photo}}" class="upload" alt="upload photo">
     </div>
 
-    <div>{{ $user->fullname }}</div>
+    <div>{{ Auth::user()->fullname }}</div>
 
-    <a href="/editUser" class="btncustomer">{{ $user->role }}</a>
+    <a href="/editUser" class="btncustomer">{{ Auth::user()->role }}</a>
 
     <a href="/profile">
         <img src="{{asset('images/icon-profile.svg')}}" alt="Login">

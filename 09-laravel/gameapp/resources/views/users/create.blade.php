@@ -91,7 +91,7 @@
                     <x-input-error :messages="$errors->get('password_confirmation')" class="mt-2" />
                 </div>
 
-                <button type="submit">register</button>
+                <button type="submit">Save</button>
 
             </form>
         </section>

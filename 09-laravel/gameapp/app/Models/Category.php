@@ -26,4 +26,11 @@ class Category extends Model
     public function games(){
         return $this->hasMany('App\Models\Game');
     }
+
+    public function scopeNames($users, $query){
+        if(trim($query)){
+            $users->where('name', 'LIKE','%'.$query.'%')
+                ->orWhere('manufacturer','LIKE','%'.$query.'%');
+        }
+    }
 }

@@ -44,9 +44,6 @@ class UserRequest extends FormRequest
             ];
         }
 
-
-
-        
     }
 
     public function messages(): array

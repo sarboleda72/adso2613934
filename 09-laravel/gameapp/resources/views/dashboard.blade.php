@@ -19,7 +19,7 @@
     <div class="container-dark">
         <div class="icons">
             <img src="images/icon-users.svg" alt="">
-            20 rows
+            {{ App\Models\User::count() }} Rows
         </div>
 
         <div class="text">
@@ -35,14 +35,14 @@
     <div class="container-light">
         <div class="icons">
             <img src="images/icon-categories.svg" alt="">
-            20 rows
+            {{ App\Models\Category::count() }} Rows
         </div>
         <div class="text">
             Module: Categories
         </div>
 
         <div class="btn">
-            <a href="categories.html">view</a>
+            <a href="{{ url('categories') }}">view</a>
         </div>
 
     </div>
@@ -50,7 +50,7 @@
     <div class="container-dark">
         <div class="icons">
             <img src="images/icon-game.svg" alt="">
-            20 rows
+            {{ App\Models\Game::count()  }} Rows
         </div>
 
         <div class="text">

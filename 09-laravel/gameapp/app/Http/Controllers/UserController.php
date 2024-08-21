@@ -18,8 +18,7 @@ class UserController extends Controller
     {
         // $user= User::All();
         $users = User::paginate(20);   
-        $user = User::where('id', auth()->id())->first();
-        return view('users.index')->with(['users'=> $users, 'user'=>$user]);
+        return view('users.index')->with(['users'=> $users]);
         //
     }
 
@@ -29,8 +28,7 @@ class UserController extends Controller
     public function create()
     {
         //
-        $user = User::where('id', auth()->id())->first();
-        return view('users.create')->with(['user'=>$user]);
+        return view('users.create');
     }
 
     /**
@@ -63,8 +61,7 @@ class UserController extends Controller
     public function show(User $user)
     {
         //dd($user->toArray());
-        $userAuth = User::where('id', auth()->id())->first();
-        return view('users.show')->with(['users'=> $user, 'user'=>$userAuth]);
+        return view('users.show')->with(['users'=> $user]);
         
     }
 
@@ -74,8 +71,7 @@ class UserController extends Controller
     public function edit(User $user)
     {
         //
-        $userAuth = User::where('id', auth()->id())->first();
-        return view('users.edit')->with(['users'=>$user, 'user'=>$userAuth]); 
+        return view('users.edit')->with(['users'=>$user]); 
         
     }
 

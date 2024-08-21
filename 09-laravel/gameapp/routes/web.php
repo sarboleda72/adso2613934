@@ -3,8 +3,10 @@
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\CategoryController;
 use Illuminate\Support\Facades\Route;
 use App\Models\User;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -51,7 +53,8 @@ Route::middleware('auth')->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy'); */
     Route::resources([
-        'users' => UserController::class
+        'users' => UserController::class,
+        'categories'=>CategoryController::class
     ]);
 });
 
@@ -94,6 +97,7 @@ Route::get('/viewusers', function(){
 // route search
 
 Route::post('users/search', [UserController::class,'search']);
+Route::post('categories/search',[CategoryController::class,'search']);
 
 //exports
 Route::get('exports/users/pdf', [UserController::class,'pdf']);

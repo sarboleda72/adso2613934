@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('title', 'GameApp - Users Module')
+@section('title', 'GameApp - Categories Module')
 @section('classMain', 'users')
 
 @section('content')
@@ -8,7 +8,7 @@
         <a href="javascript:history.back()">
             <img class="back" src="images/back.svg" alt="menu">
         </a>
-        <img class="logo" src="images/logo-user.svg" alt="Logo">
+        <img class="logo" src="images/logo-categories.svg" alt="Logo">
         <img class="btn-burger" src="images/menu.svg" alt="menu">
 
     </header>
@@ -20,7 +20,7 @@
     <section class="scroll">
 
         <div class="add">
-            <a href="{{ url('users/create') }}">+ add</a>
+            <a href="{{ url('categories/create') }}">+ add</a>
         </div>
         <div class="options">
             <a href="{{url('exports/users/excel')}}">
@@ -38,30 +38,30 @@
         <div class="insert">
             
 
-            @foreach ($users as $user)
+            @foreach ($categories as $category)
             <div class="container-dark">
                 <div class="icons">
-                    <img src="img/{{ $user->photo }}" alt="">
+                    <img src="img/{{ $category->image }}" alt="">
                 </div>
 
                 <div class="text">
                     <div>
-                        {{ $user->fullname }}
+                        {{ $category->name }}
                     </div>
                     <div class="txtAdmin">
-                        {{ $user->role }}
+                        {{ $category->manufacturer}}
                     </div>
                 </div>
 
                 <div class="btn">
-                    <a class="view" href="{{ url('users/' . $user->id) }}"><img src="images/icon-search.svg"
+                    <a class="view" href="{{ url('categories/' . $category->id) }}"><img src="images/icon-search.svg"
                             alt=""></a>
-                    <a class="edit" href="{{ url('users/' . $user->id . '/edit') }}"><img src="images/icon-edit.svg"
+                    <a class="edit" href="{{ url('categories/' . $category->id . '/edit') }}"><img src="images/icon-edit.svg"
                             alt=""></a>
-                    <a class="delete" href="javascript:;" class="delete" data-fullname="{{ $user->fullname }}"><img
+                    <a class="delete" href="javascript:;" class="delete" data-fullname="{{ $category->name }}"><img
                             src="images/icon-delete.svg" alt=""></a>
 
-                    <form action="{{ url('users/' . $user->id) }}" method="POST" style="display: none">
+                    <form action="{{ url('categories/' . $category->id) }}" method="POST" style="display: none">
                         @csrf
                         @method('DELETE')
                     </form>
@@ -74,7 +74,7 @@
     </section>
 
     <div class="paginate">
-        {{ $users->links('layouts.paginator') }}
+        {{ $categories->links('layouts.paginator') }}
     </div>
 
 @endsection
@@ -134,12 +134,11 @@
             e.preventDefault();
             $query = $(this).val();
             $token = $('input[name=_token]').val();
-            $model= 'users';
+            $model= 'categories';
 
             $('.loader').show();
             $('.insert').hide();
             
-
             $.post($model+'/search', 
                 {q: $query, _token: $token},
                 function(data){
