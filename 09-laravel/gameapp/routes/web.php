@@ -4,6 +4,7 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\GameController;
 use Illuminate\Support\Facades\Route;
 use App\Models\User;
 
@@ -54,7 +55,8 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy'); */
     Route::resources([
         'users' => UserController::class,
-        'categories'=>CategoryController::class
+        'categories'=>CategoryController::class,
+        'games'=>GameController::class
     ]);
 });
 

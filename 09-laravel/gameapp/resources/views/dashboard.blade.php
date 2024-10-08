@@ -58,7 +58,7 @@
         </div>
 
         <div class="btn">
-            <a href="games.html">view</a>
+            <a href="{{ url('games') }}">view</a>
         </div>
     </div>
 
