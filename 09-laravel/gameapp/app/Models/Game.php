@@ -19,8 +19,8 @@ class Game extends Model
         'image',
         'developer',
         'releasedate',
-        'categoryId',
-        'userId',
+        'category_id',
+        'user_id',
         'price',
         'genre',
         'slider',
@@ -41,4 +41,12 @@ class Game extends Model
     public function collection(){
         return $this->belongsTo('App\Models\Collection');
     }
+
+    public function scopeNames($games, $query){
+    if (trim($query)) {
+        $games->where('title', 'LIKE', '%' . $query . '%')
+              ->orWhere('developer', 'LIKE', '%' . $query . '%');
+    }
+}
+
 }

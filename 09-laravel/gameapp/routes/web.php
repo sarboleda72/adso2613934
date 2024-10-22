@@ -100,10 +100,15 @@ Route::get('/viewusers', function(){
 
 Route::post('users/search', [UserController::class,'search']);
 Route::post('categories/search',[CategoryController::class,'search']);
+Route::post('games/search',[GameController::class,'search']);
 
 //exports
 Route::get('exports/users/pdf', [UserController::class,'pdf']);
 Route::get('exports/users/excel', [UserController::class,'excel']);
+
+Route::get('exports/games/pdf', [GameController::class, 'pdf']);
+Route::get('exports/games/excel', [GameController::class, 'excel']);
+
 
 
 require __DIR__.'/auth.php';

@@ -23,10 +23,10 @@
             <a href="{{ url('games/create') }}">+ add</a>
         </div>
         <div class="options">
-            <a href="{{url('exports/users/excel')}}">
+            <a href="{{url('exports/games/excel')}}">
                 excel
             </a>
-            <a href="{{url('exports/users/pdf')}}">
+            <a href="{{url('exports/games/pdf')}}">
                 pdf
             </a>
         </div>
@@ -39,7 +39,7 @@
             @foreach ($games as $game)
             <div class="container-dark">
                 <div class="icons">
-                    <img src="img/no-photo.png" alt="">
+                    <img src="img/no-game.png" alt="">
                 </div>
 
                 <div class="text">
@@ -130,7 +130,7 @@
             e.preventDefault();
             $query = $(this).val();
             $token = $('input[name=_token]').val();
-            $model= 'users';
+            $model= 'games';
 
             $('.loader').show();
             $('.insert').hide();

@@ -4,26 +4,26 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>all Users</title>
+    <title>All Games</title> <!-- Cambiar el título -->
 </head>
 <body>
     <table>
         <tr>
             <th>ID</th>
-            <th>Full Name</th>
-            <th>Email</th>
-            <th>Phone</th>
-            <th>Role</th>
-            <th>Photo</th>
+            <th>Title</th> <!-- Cambiar 'Full Name' a 'Title' -->
+            <th>Developer</th> <!-- Cambiar 'Email' a 'Developer' -->
+            <th>Release Date</th> <!-- Cambiar 'Phone' a 'Release Date' -->
+            <th>Price</th> <!-- Agregar 'Price' -->
+            <th>Image</th> <!-- Cambiar 'Photo' a 'Image' -->
         </tr>
-        @foreach ($users as $user)
+        @foreach ($games as $game) <!-- Cambiar 'users' a 'games' -->
             <tr>
-                <td>{{ $user->id}}</td>
-                <td>{{ $user->fullname}}</td>
-                <td>{{ $user->email}}</td>
-                <td>{{ $user->phone}}</td>
-                <td>{{ $user->role}}</td>
-                <td><img src="{{ public_path().'/img/'.$user->photo}}" alt="" width="40px"></td>
+                <td>{{ $game->id }}</td>
+                <td>{{ $game->title }}</td>
+                <td>{{ $game->developer }}</td>
+                <td>{{ $game->releasedate }}</td> <!-- Cambiar para mostrar la fecha de lanzamiento -->
+                <td>{{ $game->price }}</td> <!-- Cambiar para mostrar el precio -->
+                <td><img src="{{ public_path().'/img/'.$game->image }}" alt="" width="40px"></td> <!-- Cambiar 'photo' a 'image' -->
             </tr>            
         @endforeach
     </table>
